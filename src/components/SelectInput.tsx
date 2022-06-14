@@ -1,27 +1,26 @@
-import { SelectButton } from 'primereact/selectbutton'
+import { Dropdown } from 'primereact/dropdown'
 import { classNames } from 'primereact/utils'
 
 interface InputProps {
-    value: string[],
+    value: string,
     error: any,
     handleChange: any,
     helperText: any,
-    handleBlur: any,
-    touched: any
+    options: any
 } 
 
-export const SelectInput = ({value, error, touched, handleChange, helperText, handleBlur} : InputProps ) => {
+export const SelectInput = ({value, error, options, handleChange, helperText} : InputProps ) => {
     
     const getFormErrorMessage = () => {
-        return helperText && <small className="p-error">{helperText}</small>;
+        return error && <small className="p-error">{error && helperText}</small>;
     };
 
 
   return (
     <div className="field">
     <span className='p-float-label'>
-      <SelectButton id='select' name='select' value={value} onChange={handleChange} onBlur={handleBlur} autoFocus />
-      <label htmlFor="select" className={classNames({ 'p-error': getFormErrorMessage()  })}>Select*</label>
+      <Dropdown id='country' optionValue='value' optionLabel='label' name='country' options={options} value={value} onChange={handleChange}   autoFocus placeholder='Select a country' />
+      <label htmlFor="select" className={classNames({ 'p-error': getFormErrorMessage()  })}></label>
     </span>
     {getFormErrorMessage()}
   </div>

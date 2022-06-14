@@ -7,13 +7,12 @@ interface InputProps {
     handleChange: any,
     helperText: any,
     handleBlur: any,
-    touched: any
 } 
 
-export const NumberInput = ({value, error, touched, handleChange, helperText, handleBlur} : InputProps ) => {
+export const NumberInput = ({value, error, handleChange, helperText, handleBlur} : InputProps ) => {
     
     const getFormErrorMessage = () => {
-        return helperText && <small className="p-error">{helperText}</small>;
+        return error && <small className="p-error">{error && helperText}</small>;
     };
 
 

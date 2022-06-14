@@ -1,8 +1,8 @@
-import { InputText } from 'primereact/inputtext'
+import { Checkbox } from 'primereact/checkbox'
 import { classNames } from 'primereact/utils'
 
 interface InputProps {
-    value: string,
+    checked: boolean,
     error: any,
     handleChange: any,
     helperText: any,
@@ -10,7 +10,7 @@ interface InputProps {
     touched: any
 } 
 
-export const PasswordInput = ({value, error, touched, handleChange, helperText, handleBlur} : InputProps ) => {
+export const CheckInput = ({checked, error, touched, handleChange, helperText, handleBlur} : InputProps ) => {
     
     const getFormErrorMessage = () => {
         return helperText && <small className="p-error">{helperText}</small>;
@@ -20,8 +20,8 @@ export const PasswordInput = ({value, error, touched, handleChange, helperText, 
   return (
     <div className="field">
     <span className='p-float-label'>
-      <InputText id='password' name='password' value={value} onChange={handleChange} onBlur={handleBlur} autoFocus />
-      <label htmlFor="password" className={classNames({ 'p-error': getFormErrorMessage()  })}>Password*</label>
+      <Checkbox id='accept' name='accept' checked={checked} onChange={handleChange} onBlur={handleBlur} autoFocus />
+      <label htmlFor="accept" className={classNames({ 'p-error': getFormErrorMessage()  })}> </label>
     </span>
     {getFormErrorMessage()}
   </div>

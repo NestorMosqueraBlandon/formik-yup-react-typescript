@@ -10,7 +10,7 @@ interface InputProps {
     handleBlur: any,
 } 
 
-export const TextInput = ({value, error, handleChange, helperText, handleBlur} : InputProps ) => {
+export const EmailInput = ({value, error, handleChange, helperText, handleBlur} : InputProps ) => {
     
     const getFormErrorMessage = () => {
         return error && <small className="p-error">{error && helperText}</small>;
@@ -20,8 +20,8 @@ export const TextInput = ({value, error, handleChange, helperText, handleBlur} :
   return (
     <div className="field ">
     <span className='p-float-label '>
-      <InputText id='name' name='name' value={value} onChange={handleChange} onBlur={handleBlur} autoFocus />
-      <label htmlFor="name" className={classNames({ 'p-error': getFormErrorMessage()  })}>Name*</label>
+      <InputText id='email' name='email' value={value} onChange={handleChange} onBlur={handleBlur} autoFocus />
+      <label htmlFor="email" className={classNames({ 'p-error': getFormErrorMessage()  })}>Email*</label>
     </span>
     {getFormErrorMessage()}
   </div>
