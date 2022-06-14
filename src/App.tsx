@@ -25,7 +25,7 @@ interface FormValues {
   password: string,
   accept: boolean,
   country: string,
-  terms: boolean
+  terms: ''
 }
 
 interface FormStatus {
@@ -76,7 +76,7 @@ const App = () => {
     password: '',
     country: '',
     accept: false,
-    terms: false
+    terms: ''
   }
 
   const options = [
@@ -106,7 +106,7 @@ const App = () => {
           email: string().email().required('Enter valid email'),
           country: string().required('Select a country'),
           age: number().required('Enter valid age'),
-          terms: boolean(),
+          terms: string(),
           accept: boolean(),
           password: string()
             .matches(
@@ -150,6 +150,7 @@ const App = () => {
 
               <NumberInput
                 value={values.age}
+
                 handleBlur={handleBlur}
                 helperText={
                   errors.age && touched.age
@@ -178,14 +179,11 @@ const App = () => {
                   : 'Select a country'
               } error={errors.country && touched.country ? true : false} handleChange={handleChange} />
 
-              <RadioInput value={values.terms} helperText={
+              <RadioInput inputId='id2' value={values.terms} helperText={
                 errors.terms && touched.terms
                   ? errors.terms
                   : ''
               } error={errors.terms && touched.terms ? true : false} handleChange={handleChange} />
-
-
-
 
               <Button
                 type="submit"
